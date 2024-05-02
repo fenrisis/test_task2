@@ -1,0 +1,14 @@
+SELECT a.id, a.title                         -------выбираем столбцы из результатаов запроса
+FROM article a                               -------добавляем алиас
+LEFT JOIN comment c ON a.id = c.article_id   -------записи из article сопоставляем comment
+WHERE c.id IS NULL;                          -------фильтруем результататы по отсутствию коментов
+---------------------------------------------------------------------------------------------------
+test=# SELECT a.id, a.title
+FROM article a
+LEFT JOIN comment c ON a.id = c.article_id
+WHERE c.id IS NULL;
+ id |               title
+----+-----------------------------------
+  2 | Maecenas egestas fermentum rutrum
+  3 | Nam vestibulum dignissim volutpat
+(2 rows)
